@@ -19,7 +19,6 @@ interface Schedule {
 })
 export class ScheduleTableComponent {
 
-  // Recibimos la fecha seleccionada desde el componente padre
   @Input() selectedDate!: string;
   @Input() currentDateSelected!: string;
   @Input() getCurrentTime!: ScheduleTime[];
@@ -39,7 +38,6 @@ export class ScheduleTableComponent {
   }
 
   getAvailabilityClass(timeSlot: string): string {
-    console.log({ timeSlot });
 
     const matchingTime = this.getCurrentTime.find(time => time.time === timeSlot.split(':')[0]);
     return matchingTime ? 'full' : 'clear';
@@ -78,13 +76,10 @@ export class ScheduleTableComponent {
         }
       }
 
-      // Refrescar los datos después de la actualización
       this.selectedTime = null;
-      // await this.refreshSchedules();
+
       await this.refreshSchedulesTime()
-      // Forzar la detección de cambios
       this.cdr.detectChanges();
-      // this.getAvailabilityClass()
     } catch (error) {
       console.error('Error al enviar el pedido:', error);
     }
@@ -99,12 +94,6 @@ export class ScheduleTableComponent {
     });
   }
 
-  // async refreshSchedules(): Promise<void> {
-  //   // Aquí puedes recargar los datos necesarios después de la actualización
-  //   await this.fetchSchedules();
-  //   // También puedes agregar cualquier otra lógica de actualización aquí
-  // }
-
   refreshSchedulesTime(): Promise<void> {
     return new Promise<void>((resolve) => {
       this.service.getSchedulesTime().subscribe(() => {
@@ -112,8 +101,6 @@ export class ScheduleTableComponent {
       });
     });
   }
-
-
 
   cancelOrder(): void {
     this.selectedTime = null;
