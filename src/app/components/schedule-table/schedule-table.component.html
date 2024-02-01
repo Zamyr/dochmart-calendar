@@ -1,0 +1,30 @@
+<div *ngIf="selectedDate" class="schedule-table">
+  <table>
+    <thead>
+      <tr>
+        <th [attr.colspan]="timeSlots.length">Horarios para el {{ selectedDate }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td *ngFor="let timeSlot of timeSlots; let i = index" [class.full]="getAvailabilityClass(timeSlot) === 'full'"
+          [class.clear]="getAvailabilityClass(timeSlot) === 'clear'"
+          (click)="getAvailabilityClass(timeSlot) === 'clear' ? confirmOrder(timeSlot) : null">
+          <div class="container-hours">
+            <span class="text-hour">{{ timeSlot }}</span>
+            <span *ngIf="getAvailabilityClass(timeSlot) === 'full'" class="message">Ocupado</span>
+            <span *ngIf="getAvailabilityClass(timeSlot) === 'clear'" class="message">Disponible</span>
+          </div>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+  <div class="confirmation-text" *ngIf="selectedTime">
+    ¿Desea enviar su pedido a las {{ selectedTime }}?
+    <div class="conconfirmation-buttons">
+      <button (click)="sendOrder()">Enviar</button>
+      <button (click)="cancelOrder()">Cancelar</button>
+    </div>
+  </div>
+</div>

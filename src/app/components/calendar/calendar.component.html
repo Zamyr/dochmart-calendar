@@ -1,0 +1,31 @@
+<div class="calendar-container">
+  <div class="wrapper">
+    <header>
+      <p class="current-date">{{ calendarData.currentDate }}</p>
+      <div class="icons">
+        <span id="prev" class="material-symbols-rounded" (click)="onPrevNextClick(-1)">&lt;</span>
+        <span id="next" class="material-symbols-rounded" (click)="onPrevNextClick(1)">&gt;</span>
+      </div>
+    </header>
+    <div class="calendar">
+      <ul class="weeks">
+        <li>Do</li>
+        <li>Lu</li>
+        <li>Ma</li>
+        <li>Mi</li>
+        <li>Ju</li>
+        <li>Vi</li>
+        <li>Sa</li>
+      </ul>
+      <ul class="days">
+        <li *ngFor="let day of calendarData.daysInMonth" [class.active]="day.class === 'active'"
+          [class.inactive]="day.class === 'inactive'" [class.selected]="isSelectedDate(day.day, day.month)"
+          (click)="handleDateSelection(day.day, day.month)">
+          {{ day.day }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<app-schedule-table [selectedDate]="formattedDate" [currentDateSelected]="selectedDate"
+  [getCurrentTime]="getCurrentTime"></app-schedule-table>

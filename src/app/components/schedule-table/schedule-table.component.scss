@@ -1,0 +1,60 @@
+.schedule-table {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+table {
+  width: 80%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th,
+td {
+  padding: 10px;
+  // text-align: left;
+  border-bottom: 1px solid #ddd;
+
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.full {
+  background-color: #fa6351;
+}
+
+.clear {
+  background-color: #7cf797;
+}
+
+.container-hours {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.text-hour {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.confirmation-text {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.conconfirmation-buttons {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 10px;
+}
+
+.conconfirmation-buttons :first-child {
+  margin-right: 20px;
+}
