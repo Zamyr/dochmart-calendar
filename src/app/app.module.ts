@@ -12,12 +12,12 @@ import { DeliverService } from './deliver.service';
 import { ScheduleTableComponent } from './components/schedule-table/schedule-table.component';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA-5UaS1WvntUY30IA8RKxCOkxwWRiLwCo",
-  authDomain: "schedules-93982.firebaseapp.com",
-  projectId: "schedules-93982",
-  storageBucket: "schedules-93982.appspot.com",
-  messagingSenderId: "500674741211",
-  appId: "1:500674741211:web:00669be97870f6e1b05dfe"
+  apiKey: "",
+  authDomain: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: ""
 };
 
 @NgModule({
